@@ -8,17 +8,6 @@ export default class Bishop extends Piece {
         super(player);
     }
         
-    isValidMove(piece) {
-        //console.log(piece instanceof King);
-        if (!piece)
-            return true;
-        else {
-            if (piece.player!==this.player && !(piece instanceof King))
-                return true;
-        }
-        return false;
-    }
-
     getAvailableMoves(board) {
         const moves = [];
         let location = board.findPiece(this);
@@ -32,7 +21,7 @@ export default class Bishop extends Piece {
             col++;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(piece)) {
+            if (super.isValidMove(piece) && !(piece instanceof King)) {
                 moves.push(square);
                 if (piece)
                     break;
@@ -48,7 +37,7 @@ export default class Bishop extends Piece {
             col--;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(piece)) {
+            if (super.isValidMove(piece)&&!(piece instanceof King)) {
                 moves.push(square);
                 if (piece)
                     break;
@@ -64,7 +53,7 @@ export default class Bishop extends Piece {
             col++;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(piece)) {
+            if (super.isValidMove(piece) && !(piece instanceof King)) {
                 moves.push(square);
                 if (piece)
                     break;
@@ -80,7 +69,7 @@ export default class Bishop extends Piece {
             col--;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(piece)) {
+            if (super.isValidMove(piece)&& !(piece instanceof King)) {
                 moves.push(square);
                 if (piece)
                     break;
