@@ -1,5 +1,3 @@
-//import King from './king';
-
 export default class Piece {
     constructor(player) {
         this.player = player;
@@ -13,15 +11,4 @@ export default class Piece {
         const currentSquare = board.findPiece(this);
         board.movePiece(currentSquare, newSquare);
     }
-/*
-    isValidMove(board, square) {
-        if (!board.getPiece(square))
-            return true;
-        else {
-            if (!(board.getPiece(square) instanceof King))
-                return true;
-        }
-        return false;
-    }
-*/
 }

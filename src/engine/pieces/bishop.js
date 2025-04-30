@@ -9,6 +9,7 @@ export default class Bishop extends Piece {
     }
         
     isValidMove(piece) {
+        //console.log(piece instanceof King);
         if (!piece)
             return true;
         else {
@@ -31,7 +32,7 @@ export default class Bishop extends Piece {
             col++;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(board, piece)) {
+            if (this.isValidMove(piece)) {
                 moves.push(square);
                 if (piece)
                     break;
@@ -47,7 +48,7 @@ export default class Bishop extends Piece {
             col--;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(board, piece)) {
+            if (this.isValidMove(piece)) {
                 moves.push(square);
                 if (piece)
                     break;
@@ -63,7 +64,7 @@ export default class Bishop extends Piece {
             col++;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(board, piece)) {
+            if (this.isValidMove(piece)) {
                 moves.push(square);
                 if (piece)
                     break;
@@ -79,7 +80,7 @@ export default class Bishop extends Piece {
             col--;
             square = Square.at(row, col);
             piece = board.getPiece(square);
-            if (this.isValidMove(board, piece)) {
+            if (this.isValidMove(piece)) {
                 moves.push(square);
                 if (piece)
                     break;
