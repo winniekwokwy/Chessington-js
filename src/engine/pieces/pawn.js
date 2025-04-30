@@ -4,7 +4,7 @@ import Piece from './piece';
 import GameSettings from '../gameSettings';
 
 export default class Pawn extends Piece {
-    constructor(player) {
+    constructor(player, location) {
         super(player);
         this.firstMove = true;
     }

@@ -1,4 +1,5 @@
 import 'chai/register-should';
+import 'chai/register-should';
 import Rook from '../../../src/engine/pieces/rook';
 import Pawn from '../../../src/engine/pieces/pawn';
 import King from '../../../src/engine/pieces/king';
