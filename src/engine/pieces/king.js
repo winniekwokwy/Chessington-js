@@ -22,7 +22,7 @@ export default class King extends Piece {
         if (location.row===0)
             rowStart = location.row;
         if (location.col===0)
-            colStart = colStart.col;
+            colStart = location.col;
         if (location.row===GameSettings.BOARD_SIZE-1)
             rowEnd = location.row;
         if (location.col===GameSettings.BOARD_SIZE-1)

@@ -69,19 +69,6 @@ describe('Pawn', () => {
 
             moves.should.have.length(2);
             moves.should.deep.include.members([Square.at(4, 7), Square.at(5, 7)]);
-            
-            moves.should.have.length(1);
-            moves.should.deep.include(Square.at(4, 0));
-        });
-
-        it('can move one or two squares down on their first move', () => {
-            const pawn = new Pawn(Player.BLACK);
-            board.setPiece(Square.at(6, 7), pawn);
-
-            const moves = pawn.getAvailableMoves(board);
-
-            moves.should.have.length(2);
-            moves.should.deep.include.members([Square.at(4, 7), Square.at(5, 7)]);
         });
 
         it('cannot move at the bottom of the board', () => {
