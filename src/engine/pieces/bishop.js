@@ -1,82 +1,31 @@
 import Piece from './piece';
-import Square from '../square';
-import GameSettings from '../gameSettings';
 import King from './king';
 
 export default class Bishop extends Piece {
     constructor(player) {
         super(player);
     }
+
+    removeOpposingKing(board, moves){
+        let piece;
+        moves = moves.filter((move)=>{
+            piece = board.getPiece(move);
+            if (piece) {
+                if (!(piece instanceof King))
+                    return move;
+            }
+            else 
+                return move;
+        });
+        return moves;
+    }
         
     getAvailableMoves(board) {
-        const moves = [];
-        let location = board.findPiece(this);
-        let row=location.row;
-        let col=location.col;
-        let square;
+        let moves = [];
         let piece;
 
-        while (row<GameSettings.BOARD_SIZE-1 && col<GameSettings.BOARD_SIZE-1){
-            row++;
-            col++;
-            square = Square.at(row, col);
-            piece = board.getPiece(square);
-            if (super.isValidMove(piece) && !(piece instanceof King)) {
-                moves.push(square);
-                if (piece)
-                    break;
-            }
-            else
-                break;
-        }
-
-        row = location.row;
-        col = location.col;
-        while (row<GameSettings.BOARD_SIZE-1 && col>0){
-            row++;
-            col--;
-            square = Square.at(row, col);
-            piece = board.getPiece(square);
-            if (super.isValidMove(piece)&&!(piece instanceof King)) {
-                moves.push(square);
-                if (piece)
-                    break;
-            }
-            else
-                break;
-        }
-
-        row = location.row;
-        col = location.col;
-        while (row>0 && col<GameSettings.BOARD_SIZE-1){
-            row--;
-            col++;
-            square = Square.at(row, col);
-            piece = board.getPiece(square);
-            if (super.isValidMove(piece) && !(piece instanceof King)) {
-                moves.push(square);
-                if (piece)
-                    break;
-            }
-            else
-                break;
-        }
-
-        row = location.row;
-        col = location.col;
-        while (row>0 && col>0){
-            row--;
-            col--;
-            square = Square.at(row, col);
-            piece = board.getPiece(square);
-            if (super.isValidMove(piece)&& !(piece instanceof King)) {
-                moves.push(square);
-                if (piece)
-                    break;
-            }
-            else
-                break;
-        }
-        return moves;
+        moves= super.diagonalMoves(board);
+        
+        return this.removeOpposingKing(board, moves);
     }
 }
