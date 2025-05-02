@@ -22,7 +22,6 @@ export default class Rook extends Piece {
 
     getAvailableMoves(board) {
         let moves = [];
-        let piece;
 
         moves = super.laterallyMoves(board);
         

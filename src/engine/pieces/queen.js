@@ -19,9 +19,9 @@ export default class Queen extends Piece {
         });
         return moves;
     }
+
     getAvailableMoves(board) {
         let moves = [];
-        let piece;
 
         moves= super.diagonalMoves(board);
 

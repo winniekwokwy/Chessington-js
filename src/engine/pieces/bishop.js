@@ -22,7 +22,6 @@ export default class Bishop extends Piece {
         
     getAvailableMoves(board) {
         let moves = [];
-        let piece;
 
         moves= super.diagonalMoves(board);
         
